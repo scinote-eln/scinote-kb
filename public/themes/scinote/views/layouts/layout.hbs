@@ -24,13 +24,8 @@
         <meta name="description" content="{{substring (strip_md result.kb_body) 160}}">
         <meta property="og:description" content="{{substring (strip_md result.kb_body) 160}}" />
       {{else}}
-        {{#ifCond homepage '===' true}}
-          <meta name="description" content="{{config.settings.website_description}}">
-          <meta property="og:description" content="{{config.settings.website_description}}" />
-        {{else}}
-          <meta name="description" content="{{__ "Powered by"}} openKB">
-          <meta property="og:description" content="openKB is an Open Source Node.js Markdown based knowledge base/FAQ/Wiki app with powerful lunr search" />
-        {{/ifCond}}
+        <meta name="description" content="{{__ "Powered by"}} openKB">
+        <meta property="og:description" content="openKB is an Open Source Node.js Markdown based knowledge base/FAQ/Wiki app with powerful lunr search" />
       {{/if}}
     {{/if}}
     {{#if result.kb_keywords}}
@@ -42,50 +37,26 @@
     <meta property="og:image" content="{{current_url}}/logo.png" />
     <meta property="og:url" content="{{fullUrl}}" />
     <link rel="canonical" href="{{fullUrl}}" />
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/flatly.bootstrap.min.css">
-    <link rel="stylesheet" href="{{app_context}}/simplemde/simplemde.min.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/github{{config.settings.env}}.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/style{{config.settings.env}}.css">
+    <link rel="stylesheet" href="/themes/darkly/css/darkly.min.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/github.css">
+    <link rel="stylesheet" href="/themes/darkly/css/style.css">
     <link rel="stylesheet" href="{{app_context}}/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/mermaid{{config.settings.env}}.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/bootstrap-tokenfield{{config.settings.env}}.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/jasny-bootstrap.min.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/jpushmenu{{config.settings.env}}.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/style.css">
-    <link rel='icon' href='{{app_context}}/favicon.png' />
     <script src="{{app_context}}/jquery/jquery.min.js"></script>
-    <script>{{{state}}}</script>
     <script src="{{app_context}}/bootstrap/js/bootstrap.min.js"></script>
-    {{#ifCond title '===' 'Settings'}}
-        <script src="{{app_context}}/bootstrapTabs/tab.js"></script>
-    {{/ifCond}}
-    <script src="{{app_context}}/javascripts/bootstrap-validator{{config.settings.env}}.js"></script>
     {{#ifCond config.settings.mermaid '===' true}}
-        <script src="{{app_context}}/javascripts/mermaid.min.js"></script>
+      <script src="{{app_context}}/javascripts/mermaid.min.js"></script>
     {{/ifCond}}
     {{#ifCond config.settings.mathjax '===' true}}
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
-        </script>
-        <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config={{config.settings.mathjax_input_mode}}"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+      </script>
+      <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config={{config.settings.mathjax_input_mode}}"></script>
     {{/ifCond}}
-    <script src="{{app_context}}/javascripts/markdown-it-classy{{config.settings.env}}.js"></script>
-    <script src="{{app_context}}/javascripts/bootstrap-tokenfield.min.js"></script>
-    <script src="{{app_context}}/javascripts/inline-attachment{{config.settings.env}}.js"></script>
-    <script src="{{app_context}}/javascripts/codemirror.inline-attachment.js"></script>
+    <script src="{{app_context}}/javascripts/markdown-it-classy.js"></script>
     <script src="{{app_context}}/javascripts/highlight.min.js"></script>
-    <script src="{{app_context}}/javascripts/loadingoverlay.min.js"></script>
-    <script src="{{app_context}}/simplemde/simplemde.min.js"></script>
-    <script src="{{app_context}}/javascripts/jasny-bootstrap.min.js"></script>
     <script src="{{app_context}}/markdown-it/markdown-it.min.js"></script>
-    {{#ifCond config.settings.typeahead_search '===' true}}
-      <script src="{{app_context}}/lunr/lunr{{config.settings.env}}.js"></script>
-    {{/ifCond}}
-    <script src="{{app_context}}/javascripts/sanitizer.min.js"></script>
-    <script src="{{app_context}}/javascripts/jpushmenu{{config.settings.env}}.js"></script>
-    <script src="{{app_context}}/javascripts/openKB{{config.settings.env}}.js"></script>
+    <script src="{{app_context}}/javascripts/openKB.js"></script>
     {{#ifCond user_page '===' true}}
-      <style>{{{simpleCSS config}}}</style>
       {{#if config.settings.google_analytics}}
         {{{config.settings.google_analytics}}}
       {{/if}}
@@ -97,64 +68,54 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">{{__ "Toggle navigation"}}</span>
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            {{#ifCond config.settings.show_website_logo '===' true}}
-              <a class="navbar-brand brand-image" href="{{app_context}}/"><img src="{{app_context}}/static/logo.png" width="140"></a>
-            {{else}}
-                {{#ifCond config.settings.website_title '===' 'openKB'}}
-                  <a class="navbar-brand brand-image" href="{{app_context}}/"><img src="{{app_context}}/static/logo.png" width="140"></a>
-                {{else}}
-                  <a class="navbar-brand" href="{{app_context}}/">{{config.settings.website_title}}</a>
-                {{/ifCond}}
-            {{/ifCond}}
+          <a class="navbar-brand" href="{{app_context}}/"><img alt="Brand" class="img-responsive" height="110" width="110" src="{{app_context}}/themes/darkly/images/logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             {{#if session.user}}
               {{#if result._id}}
-                <li><a href="{{app_context}}/edit/{{result._id}}">{{__ "Edit"}}</a></li>
+                <li><a href="{{app_context}}/edit/{{result._id}}">Edit</a></li>
               {{/if}}
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__ "Users"}} <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   {{#ifCond session.is_admin '==' 'true'}}
-                    <li><a href="{{app_context}}/users/new"><i class="fa fa-user-plus fa-fw"></i>&nbsp; {{__ "New"}}</a></li>
-                    <li><a href="{{app_context}}/users"><i class="fa fa-users fa-fw"></i>&nbsp; {{__ "Edit"}}</a></li>
+                    <li><a href="{{app_context}}/users/new"><i class="fa fa-user-plus fa-fw"></i>&nbsp; New</a></li>
+                    <li><a href="{{app_context}}/users"><i class="fa fa-users fa-fw"></i>&nbsp; Edit</a></li>
                   {{/ifCond}}
-                  <li><a href="{{app_context}}/user/edit/{{session.user_id}}"><i class="fa fa-user fa-fw"></i>&nbsp; {{__ "My account"}}</a></li>
+                  <li><a href="{{app_context}}/user/edit/{{session.user_id}}"><i class="fa fa-user fa-fw"></i>&nbsp; My account</a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__ "Article"}} <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Article <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{app_context}}/insert"><i class="fa fa-plus fa-fw"></i>&nbsp; {{__ "New"}}</a></li>
-                  <li><a href="{{app_context}}/articles"><i class="fa fa-pencil fa-fw"></i>&nbsp; {{__ "Edit"}}</a></li>
+                  <li><a href="{{app_context}}/insert"><i class="fa fa-plus fa-fw"></i>&nbsp; New</a></li>
+                  <li><a href="{{app_context}}/articles"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a></li>
                 </ul>
               </li>
               {{#ifCond session.is_admin '==' 'true'}}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__ "Admin"}} <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="{{app_context}}/settings"><i class="fa fa-cog fa-fw"></i>&nbsp; {{__ "Settings"}}</a></li>
-                  <li><a href="{{app_context}}/files"><i class="fa fa-files-o fa-fw"></i>&nbsp; {{__ "Files"}}</a></li>
-                  <li><a href="{{app_context}}/import"><i class="fa fa-upload fa-fw"></i>&nbsp; {{__ "Import"}}</a></li>
-                  <li><a href="{{app_context}}/export"><i class="fa fa-file-archive-o fa-fw"></i>&nbsp; {{__ "Export"}}</a></li>
-                  <li><a href="{{app_context}}/file_cleanup"><i class="fa fa-trash fa-fw"></i>&nbsp; {{__ "Cleanup files"}}</a></li>
-                </ul>
-              </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{app_context}}/settings"><i class="fa fa-cog fa-fw"></i>&nbsp; {{__ "Settings"}}</a></li>
+                    <li><a href="{{app_context}}/files"><i class="fa fa-files-o fa-fw"></i>&nbsp; {{__ "Files"}}</a></li>
+                    <li><a href="{{app_context}}/import"><i class="fa fa-upload fa-fw"></i>&nbsp; {{__ "Import"}}</a></li>
+                    <li><a href="{{app_context}}/export"><i class="fa fa-file-archive-o fa-fw"></i>&nbsp; {{__ "Export"}}</a></li>
+                    <li><a href="{{app_context}}/file_cleanup"><i class="fa fa-trash fa-fw"></i>&nbsp; {{__ "Cleanup files"}}</a></li>
+                  </ul>
+                </li>
               {{/ifCond}}
-              <li><a href="{{app_context}}/logout">{{__ "Logout"}}</a></li>
+              <li><a href="{{app_context}}/logout">Logout</a></li>
             {{else}}
               {{#if config.settings.suggest_allowed}}
-                <li><a href="{{app_context}}/suggest">{{__ "Suggest"}}</a></li>
+                <li><a href="{{app_context}}/suggest">Suggest</a></li>
               {{/if}}
-              {{#ifCond config.settings.show_logon '==' true}}
-                <li><a href="{{app_context}}/login">{{__ "Login"}}</a></li>
-              {{/ifCond}}
+              <li><a href="{{app_context}}/login">Login</a></li>
             {{/if}}
           </ul>
         </div>
@@ -171,7 +132,7 @@
     {{#if show_footer}}
       <footer class="footer">
         <div class="container">
-          <p class="text-muted">{{__ "Powered by"}} <a href="http://openkb.mrvautin.com/" target="_blank">openKB</a></p>
+          <p>{{__ "Powered by"}} <a href="http://openkb.mrvautin.com/" target="_blank">openKB</a></p>
         </div>
       </footer>
     {{/if}}
