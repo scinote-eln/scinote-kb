@@ -89,7 +89,7 @@
                 <ul class="list-group">
                     <li class="list-group-item list-group-heading">Trending articles</li>
                     {{#each top_results}}
-                            <li class="list-group-item col-md-6">
+                            <li class="list-group-item">
                                 <h5>
                                 {{#if kb_permalink}}
                                     <a href="{{app_context}}/{{@root.config.settings.route_name}}/{{this.kb_permalink}}">{{this.kb_title}}</a>
