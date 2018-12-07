@@ -37,10 +37,18 @@
     <meta property="og:image" content="{{current_url}}/logo.png" />
     <meta property="og:url" content="{{fullUrl}}" />
     <link rel="canonical" href="{{fullUrl}}" />
-    <link rel="stylesheet" href="/themes/scinote/css/scinote.min.css">
-    <link rel="stylesheet" href="{{app_context}}/stylesheets/github.css">
-    <link rel="stylesheet" href="/themes/scinote/css/style.css">
+
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/flatly.bootstrap.min.css">
+    <link rel="stylesheet" href="{{app_context}}/simplemde/simplemde.min.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/github{{config.settings.env}}.css">
+    <link rel="stylesheet" href="{{app_context}}/themes/scinote/css/style{{config.settings.env}}.min.css">
+    <link rel="stylesheet" href="{{app_context}}/themes/scinote/css/style{{config.settings.env}}.css">
     <link rel="stylesheet" href="{{app_context}}/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/mermaid{{config.settings.env}}.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/bootstrap-tokenfield{{config.settings.env}}.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="{{app_context}}/stylesheets/jpushmenu{{config.settings.env}}.css">
+    <link rel='icon' href='{{app_context}}/favicon.png' />
     <script src="{{app_context}}/jquery/jquery.min.js"></script>
     <script>{{{state}}}</script>
     <script src="{{app_context}}/bootstrap/js/bootstrap.min.js"></script>
