@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{config.settings.locale}}">
   <head>
-    {{#if result.kb_seo_title}}
-      <title>{{result.kb_seo_title}}</title>
-      <meta property="og:title" content="{{result.kb_seo_title}}" />
-    {{else}}
-      {{#if result.kb_title}}
-        <title>{{result.kb_title}}</title>
-        <meta property="og:title" content="{{result.kb_title}}" />
-      {{else}}
-        <title>{{title}}</title>
-        <meta property="og:title" content="{{title}}" />
-      {{/if}}
-    {{/if}}
+    <title>SciNote Dev Knowledge Base</title>
+    <meta property="og:title" content="SciNote Dev Knowledge Base" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
