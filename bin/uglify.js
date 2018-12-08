@@ -9,6 +9,8 @@ uglifyFile('public/stylesheets/github.css', 'css');
 uglifyFile('public/stylesheets/jpushmenu.css', 'css');
 uglifyFile('public/stylesheets/mermaid.css', 'css');
 uglifyFile('public/stylesheets/bootstrap-tokenfield.css', 'css');
+uglifyFile('public/themes/scinote/css/style.css', 'css'); // SciNote theme css
+
 
 // js files
 uglifyFile(path.join('public', 'javascripts', 'openKB.js'), 'js');
