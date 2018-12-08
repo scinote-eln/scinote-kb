@@ -10,7 +10,7 @@
             "field": "kb_viewcount",
             "order": -1
         },
-        "website_title": "SciNote Dev FAQ",
+        "website_title": "SciNote Dev Knowledge Base",
         "show_featured_articles": true,
         "show_featured_in_article": false,
         "featured_articles_count": "4",
@@ -26,7 +26,7 @@
         "database": {
             "type": "embedded"
         },
-        "allow_voting": true,
+        "allow_voting": false,
         "google_analytics": "",
         "theme": "scinote",
         "show_logon": true,
@@ -35,8 +35,8 @@
         "index_article_body": false,
         "enable_spellchecker": true,
         "show_website_logo": true,
-        "website_description": "SciNote's Development Team knowledge base/FAQ/Wiki",
-        "article_versioning": false,
+        "website_description": "SciNote's Development Team Knowledge Base/FAQ/Wiki",
+        "article_versioning": true,
         "api_auth_token": "",
         "api_allowed": false,
         "locale": "en",
