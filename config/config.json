@@ -36,7 +36,7 @@
         "enable_spellchecker": true,
         "show_website_logo": true,
         "website_description": "SciNote's Development Team Knowledge Base/FAQ/Wiki",
-        "article_versioning": true,
+        "article_versioning": false,
         "api_auth_token": "",
         "api_allowed": false,
         "locale": "en",
